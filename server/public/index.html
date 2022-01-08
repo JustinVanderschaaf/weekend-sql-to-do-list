@@ -5,8 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="vendors/jquery.js"></script>
+    <script src="scripts/client.js"></script>
+    <link rel="stylesheet" href="styles/styles.css"/>
 </head>
 <body>
     
+    <h1>TASKS</h1>
+    </header>
+    <section id="addTasks">
+      <h2>Add Task</h2>
+      <input type="text" id="taskIn" value="" placeholder="Task">
+      <input type="text" id="completedIn" value="" placeholder="Is complete?">
+      <button type="button" id="addButton">Add Task</button>
+    </section>
+    <section>
+      <h2>All Tasks</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Task</th>
+            <th>Is Complete</th>
+          </tr>
+        </thead>
+        <tbody id="viewTasks">
+        </tbody>
+      </table>
+    </section>
+
 </body>
 </html>
