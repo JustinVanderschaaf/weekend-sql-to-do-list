@@ -52,4 +52,31 @@ taskRouter.post('/', (req, res) => {
 })
 
 
+// Delete task by id
+// DELETE /task/:id
+// The value of :id becomes req.params.id
+taskRouter.delete('/:taskId', (req, res) => {
+    // Grab the URL parameter
+    console.log('id is', req.params.taskId);
+
+    
+    let queryText = `
+        DELETE FROM "tasks"
+        WHERE id=$1; 
+    `;
+    let queryParams = [
+        req.params.taskId,      // $1
+    ];
+
+    pool.query(queryText, queryParams)
+        .then((dbRes) => {
+            // Send back a 👍
+            res.sendStatus(204);    // 204 = No Content
+        })
+        .catch((err) => {
+            console.log('DELETE /task failed!', err)
+        });
+});
+
+
 module.exports = taskRouter;

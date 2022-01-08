@@ -6,7 +6,7 @@ $( document ).ready( function(){
   setupClickListeners()
   // load existing tasks on page load
    getTasks();
-//   $(document).on('click', '.deleteBtn', onDeleteKoala);
+   $(document).on('click', '.deleteBtn', onDeleteTask);
 
 }); // end doc ready
 
@@ -58,9 +58,11 @@ function getTasks(){
         //     isButton = `<button class="isReady" data-id="${response[i].id}" >Mark not ready </button>`;
         //   }
             $('#viewTasks').append(`
-                <tr>
+                <tr data-id="${response[i].id}">
                     <td>${response[i].task}</td>
-                    <td>${response[i].completed}</td>
+                    <td>
+                    <button class="completeBtn">${response[i].completed}</button>
+                    </td>
                     <td>
                         <button class="deleteBtn">
                             ❌
@@ -80,3 +82,28 @@ function getTasks(){
     // ajax call to server to get Tasks
    
   }
+///////DELETE function
+  function onDeleteTask() {
+    // Grab the `data-id` attribute from
+    // this button's parent <tr> element
+    let taskId = $(this).parents('tr').data('id');
+    console.log('onDeleteTask', taskId);
+
+    // Delete the task by ID
+    $.ajax({
+        method: 'DELETE',
+        // The id goes into the URL
+        
+        url: `/tasks/${taskId}`
+    })
+        .then((res) => {
+            console.log('DELETE success! 🐼');
+
+            // Rerender, with our new state
+            getTasks();
+        })
+        .catch((err) => {
+            console.log('DELETE failed', err);
+        });
+}
+///////END DELETE FUNCTION
