@@ -7,3 +7,4 @@ INSERT INTO "tasks"
 	'dishes','FALSE'),
    ('shovel','TRUE'),
  ( 'garbage','FALSE')
+

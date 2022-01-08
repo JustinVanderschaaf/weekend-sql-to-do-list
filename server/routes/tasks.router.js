@@ -38,7 +38,9 @@ taskRouter.post('/', (req, res) => {
     console.log(`Adding task`, newTask);
     let queryText = `INSERT INTO "tasks" ("task", "completed")
                      VALUES ($1, $2);`;
+
     pool.query(queryText, [newTask.task, newTask.completed])
+
     .then(result => {
         res.sendStatus(201);
     })
