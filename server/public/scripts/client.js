@@ -89,6 +89,16 @@ function getTasks(){
     let taskId = $(this).parents('tr').data('id');
     console.log('onDeleteTask', taskId);
 
+    Swal.fire({
+      title: 'Do you want to delete this task?',
+      showDenyButton: true,
+      confirmButtonText: 'DELETE',
+      denyButtonText: `CANCEL`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        Swal.fire('Deleted', '', 'success')
+
     // Delete the task by ID
     $.ajax({
         method: 'DELETE',
@@ -97,7 +107,7 @@ function getTasks(){
         url: `/tasks/${taskId}`
     })
         .then((res) => {
-            console.log('DELETE success! 🐼');
+            console.log('DELETE success!');
 
             // Rerender, with our new state
             getTasks();
@@ -105,5 +115,9 @@ function getTasks(){
         .catch((err) => {
             console.log('DELETE failed', err);
         });
+      }else if (result.isDenied) {
+        Swal.fire('Changes are not saved', '', 'info')
+      }
+    })
 }
 ///////END DELETE FUNCTION
