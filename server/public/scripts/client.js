@@ -48,9 +48,9 @@ function getTasks() {
       console.log(response[i].completed);
       // complete button should only appear if the value is false
       if (response[i].completed === false) {
-        isButton = `<td class="notComplete"><button class="notCompleteBtn isComplete" data-id="${response[i].id}" >NOT Complete</button></td>`;
+        isButton = `<td class="notComplete"><button class="notCompleteBtn isComplete" data-id="${response[i].id}" >Click to Complete</button></td>`;
       } else {
-        isButton = `<td class="complete"><button class="completeBtn isComplete" data-id="${response[i].id}" > Complete </button></td>`;
+        isButton = `<td class="complete"><button class="completeBtn isComplete" data-id="${response[i].id}" > Completed </button></td>`;
       }
       $("#viewTasks").append(`
         <tr data-id="${response[i].id}">

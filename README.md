@@ -48,10 +48,10 @@ feature-styling-bootstrap
 
 [√]In whatever fashion you would like, create an 'are you sure: yes / no' option when deleting a task.
 
+[]]Add the ability to record when a task was completed. Show the completed date on the frontend in a 
+pretty format.
+
 []Responsive -- make your app responsive to different screen sizes -- check out the Layout section
 
-
 []Research Query Params to have the request reverse the order of the returned todos.
-
-[]]Add the ability to record when a task was completed. Show the completed date on the frontend in a pretty format.
 
