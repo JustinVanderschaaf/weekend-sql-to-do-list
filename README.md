@@ -43,7 +43,7 @@ feature-styling-bootstrap
 
 [√]Buttons -- make the creation buttons and completion buttons green and the delete red.
 
-[]Inputs -- make your text inputs styled in the bootstrap way
+[√]Inputs -- make your text inputs styled in the bootstrap way
 
 
 [√]In whatever fashion you would like, create an 'are you sure: yes / no' option when deleting a task.
