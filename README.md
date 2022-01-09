@@ -45,10 +45,11 @@ feature-styling-bootstrap
 
 []Inputs -- make your text inputs styled in the bootstrap way
 
-[]Responsive -- make your app responsive to different screen sizes -- check out the Layout section
-
 
 [√]In whatever fashion you would like, create an 'are you sure: yes / no' option when deleting a task.
+
+[]Responsive -- make your app responsive to different screen sizes -- check out the Layout section
+
 
 []Research Query Params to have the request reverse the order of the returned todos.
 

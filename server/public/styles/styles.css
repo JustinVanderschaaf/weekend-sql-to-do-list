@@ -51,6 +51,9 @@ h3 {
   padding-left: 5%;
   padding-right: 5%;
 }
+#completedIn {
+  width: 180px;
+}
 body {
   color: white;
   background-color: #08040e;

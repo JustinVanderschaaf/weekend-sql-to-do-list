@@ -17,10 +17,18 @@
     </header>
     <section id="addTasks">
       <h2>Add Task</h2>
-      <input type="text" id="taskIn" value="" placeholder="Task">
-      <input type="text" id="completedIn" value="" placeholder="Is complete?">
+
+      <div class="input-group mb-3">
+        <input type="text" id="taskIn" class="form-control" placeholder="Task" aria-label="Text input with dropdown button">
+      </div>
+      <select id="completedIn" class="form-select form-select-lg mb-3"  aria-label=".form-select-lg example">
+        <option selected>Is Complete?</option>
+        <option value="True">True</option>
+        <option value="False">False</option>
+      </select> 
       <button type="button" id="addButton">Add Task</button>
     </section>
+
     <section>
       <h3>All Tasks</h2>
       <table id = "table" class = "table">
