@@ -48,21 +48,21 @@ function getTasks() {
       console.log(response[i].completed);
       // complete button should only appear if the value is false
       if (response[i].completed === false) {
-        isButton = `<button class="isComplete" data-id="${response[i].id}" >NOT Complete</button>`;
+        isButton = `<td class="notComplete"><button class="notCompleteBtn isComplete" data-id="${response[i].id}" >NOT Complete</button></td>`;
       } else {
-        isButton = `<button class="isComplete" data-id="${response[i].id}" > Complete </button>`;
+        isButton = `<td class="complete"><button class="completeBtn isComplete" data-id="${response[i].id}" > Complete </button></td>`;
       }
       $("#viewTasks").append(`
-                <tr data-id="${response[i].id}">
-                    <td>${response[i].task}</td>
-                    <td>${isButton}</td>
-                    <td>
-                        <button class="deleteBtn">
-                            ❌
-                        </button>
-                    </td>
-                </tr>
-            `);
+        <tr data-id="${response[i].id}">
+          ${isButton}
+          <td>${response[i].task}</td>
+          <td>
+              <button class="deleteBtn">
+              ❌
+              </button>
+          </td>
+        </tr>
+    `);
     }
   });
 } // end getTasks
