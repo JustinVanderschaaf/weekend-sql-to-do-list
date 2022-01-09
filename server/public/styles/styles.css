@@ -2,7 +2,6 @@ h1 {
   text-align: center;
   font-size: 64px;
   font-family: cursive;
-  border-bottom: 8px solid rgb(4, 139, 4);
 }
 h2 {
   font-size: 44px;
@@ -18,7 +17,10 @@ h3 {
   text-align: center;
   font-size: 34px;
   font-family: cursive;
-  border: 8px solid rgb(4, 139, 4);
+  border-bottom: 8px solid rgb(4, 139, 4);
+  border-left: 8px solid rgb(4, 139, 4);
+  border-right: 8px solid rgb(4, 139, 4);
+  margin-bottom: 0px;
 }
 .tableHead {
   background-color: rgb(9, 168, 9);
@@ -53,6 +55,11 @@ h3 {
 }
 #completedIn {
   width: 180px;
+}
+#addTasks{
+    padding-left: 20px;
+    padding-right: 20px;
+    border: 8px solid rgb(4, 139, 4);
 }
 body {
   color: white;
