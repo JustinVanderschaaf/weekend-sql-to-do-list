@@ -41,17 +41,14 @@ feature-styling-bootstrap
 
 []Add Bootstrap to the front end and style it up!
 
-[]Buttons -- make the creation buttons and completion buttons green and the delete red.
+[√]Buttons -- make the creation buttons and completion buttons green and the delete red.
 
 []Inputs -- make your text inputs styled in the bootstrap way
 
 []Responsive -- make your app responsive to different screen sizes -- check out the Layout section
 
 
-[]In whatever fashion you would like, create an 'are you sure: yes / no' option when deleting a task.
-
-[]Some styled options are Bootstrap Modal or Sweet Alerts: Use the CDN option.
-feature-ordering-task-query
+[√]In whatever fashion you would like, create an 'are you sure: yes / no' option when deleting a task.
 
 []Research Query Params to have the request reverse the order of the returned todos.
 

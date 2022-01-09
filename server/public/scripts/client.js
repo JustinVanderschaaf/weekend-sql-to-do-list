@@ -58,7 +58,7 @@ function getTasks() {
           <td>${response[i].task}</td>
           <td>
               <button class="deleteBtn">
-              ❌
+              DELETE
               </button>
           </td>
         </tr>
