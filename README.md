@@ -39,7 +39,7 @@ For each of your strech goals, you will be practicing git branching. Please refe
 
 feature-styling-bootstrap
 
-[]Add Bootstrap to the front end and style it up!
+[√]Add Bootstrap to the front end and style it up!
 
 [√]Buttons -- make the creation buttons and completion buttons green and the delete red.
 
