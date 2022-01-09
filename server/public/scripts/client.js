@@ -28,10 +28,10 @@ function setupClickListeners() {
       $('#completedIn').val('')
         getTasks();
     });
-  // call saveKoala with the new obejct
+  // call task with the new object
   saveTask( taskToSend );
 }); 
-// $('#viewKoalas').on('click', '.isReady', markIsComplete);
+ $('#viewTasks').on('click', '.isComplete', markIsComplete);
 }
 
 function getTasks(){
@@ -45,24 +45,24 @@ function getTasks(){
     }).then(function (response) {
         console.log("GET /tasks response", response);
         let isButton = ``;
-        let isReadyForTransfer = '';
+        let isComplete = '';
         // append data to the DOM
         for (let i = 0; i < response.length; i++) {
-        //   console.log(response[i].ready_to_transfer);
-        //   // ready-to-transfer button should only appear if the value is false
-        //   if(response[i].ready_to_transfer === false) {
-        //     isReadyForTransfer = 'N';
-        //     isButton = `<button class="isReady" data-id="${response[i].id}" >Mark ready</button>`;
-        //   }else {
-        //     isReadyForTransfer = 'Y';
-        //     isButton = `<button class="isReady" data-id="${response[i].id}" >Mark not ready </button>`;
-        //   }
+           console.log(response[i].completed);
+           // complete button should only appear if the value is false
+           if(response[i].completed === false) {
+             isComplete = 'N';
+             isButton = `<button class="isComplete" data-id="${response[i].id}" >NOT Complete</button>`;
+           }else {
+             isComplete = 'Y';
+             isButton = `<button class="isComplete" data-id="${response[i].id}" > Complete </button>`;
+           }
             $('#viewTasks').append(`
                 <tr data-id="${response[i].id}">
                     <td>${response[i].task}</td>
-                    <td>
-                    <button class="completeBtn">${response[i].completed}</button>
-                    </td>
+                    
+                    <td>${isButton}</td>
+                   
                     <td>
                         <button class="deleteBtn">
                             ❌
@@ -121,3 +121,22 @@ function getTasks(){
     })
 }
 ///////END DELETE FUNCTION
+
+function markIsComplete(event) {
+  event.preventDefault();
+  let taskToComplete = $(this).data();
+  let taskID = $(this).data('id');
+  // ajax request to make ready for transfer
+  $.ajax({
+    method:   'PUT',
+    url:      `/tasks/${taskID}`,
+    data:     taskToComplete
+  })
+  .then((res) => {
+    console.log('PUT success');
+    getTasks();
+  })
+  .catch((err) => {
+    console.log('PUT failed ', err);
+  })
+}// end markIsComplete

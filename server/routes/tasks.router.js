@@ -12,7 +12,7 @@ const pool = require('../modules/pool');
 // from the database
 taskRouter.get('/', (req, res) => {
     // Make a SQL query as a string
-    const queryText = 'SELECT * FROM "tasks";';
+    const queryText = 'SELECT * FROM "tasks" ORDER BY completed ASC ;';
 
     // Send the SQL query to the database
     // This is asynchronous! It is a network request, like AJAX.
@@ -76,6 +76,24 @@ taskRouter.delete('/:taskId', (req, res) => {
         .catch((err) => {
             console.log('DELETE /task failed!', err)
         });
+});
+
+// PUT
+taskRouter.put('/:id', (req, res) => {
+    let queryParams = [req.params.id];
+    console.log('Toggling complete at id ', queryParams);
+    let queryText = `
+    UPDATE "tasks"
+        SET "completed" = NOT "completed"
+        WHERE "id" = ${queryParams};
+    `;
+    pool.query(queryText)
+    .then((dbRes) => {
+        res.sendStatus(204);
+    })
+    .catch((err) => {
+        console.log('PUT /tasks failed ', err);
+    })
 });
 
 
